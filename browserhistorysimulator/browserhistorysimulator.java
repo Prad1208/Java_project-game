@@ -1,7 +1,6 @@
-package browserhistorysimulator;
 import java.util.*;
 public class browserhistorysimulator {
-   private LinkedList<String> ll=new LinkedList<>();
+   private  LinkedList <String>  ll =new LinkedList<>();
    private  ListIterator<String> litr=ll.listIterator();
    private  String currPage=null;
     void visitPage(String url){
@@ -23,11 +22,21 @@ public class browserhistorysimulator {
         }
     }
     void goForward(){
-
+        if(litr.hasNext()){
+            currPage=litr.next();
+            System.out.println("Forward to : "+currPage);
+        }
+        else{
+            System.out.println("No forward page Exists");
+        }
     }
     void showCurrentPage(){
-
-    }
+        if(currPage==null){
+         System.out.println("No page visited yet.");
+        }
+        else{
+     System.out.println("Current Page : "+currPage);
+    }}
     public static void main(String[] args){
         browserhistorysimulator browser=new browserhistorysimulator();
         Scanner sc=new Scanner(System.in);
@@ -45,6 +54,7 @@ System.out.println("5.Exit");
 
 System.out.println("Enter your Choice");
 int choice =sc.nextInt();
+sc.nextLine();
 switch(choice){
     case 1:
         System.out.println("Enter URL:");
@@ -66,5 +76,5 @@ switch(choice){
     default:
         System.out.println("Invalid choice.... please") ; 
 }
-    }
 }
+}}
